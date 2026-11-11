@@ -1,0 +1,96 @@
+{
+  "manifest_version": 3,
+  "name": "WebAgent 1.3.1 (Web AI MCP Bridge)",
+  "version": "1.3.1",
+  "description": "WebAgent 1.3.1 专用浏览器扩展，无缝将 DeepSeek / ChatGPT / Kimi / 豆包 / 通义千问 (Qwen) / Duck.ai / Dola 网页端连接至本地 WebAgent (127.0.0.1:18080)。原生支持标准 MCP 工具调用、全盘文件读写与终端命令行执行。",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://chat.deepseek.com/*",
+    "https://*.deepseek.com/*",
+    "https://chatgpt.com/*",
+    "https://*.chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://*.openai.com/*",
+    "https://kimi.ai/*",
+    "https://www.kimi.ai/*",
+    "https://*.kimi.ai/*",
+    "https://kimi.moonshot.cn/*",
+    "https://*.kimi.moonshot.cn/*",
+    "https://kimi.com/*",
+    "https://*.kimi.com/*",
+    "https://www.doubao.com/*",
+    "https://doubao.com/*",
+    "https://*.doubao.com/*",
+    "https://duck.ai/*",
+    "https://*.duck.ai/*",
+    "https://duckduckgo.com/*",
+    "https://*.duckduckgo.com/*",
+    "https://chat.qwen.ai/*",
+    "https://*.qwen.ai/*",
+    "https://tongyi.aliyun.com/*",
+    "https://www.dola.com/*",
+    "https://dola.com/*",
+    "https://*.dola.com/*",
+    "http://127.0.0.1:*/*",
+    "http://localhost:*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*",
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://*.openai.com/*",
+        "https://kimi.ai/*",
+        "https://www.kimi.ai/*",
+        "https://*.kimi.ai/*",
+        "https://kimi.moonshot.cn/*",
+        "https://*.kimi.moonshot.cn/*",
+        "https://kimi.com/*",
+        "https://*.kimi.com/*",
+        "https://www.doubao.com/*",
+        "https://doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://duck.ai/*",
+        "https://*.duck.ai/*",
+        "https://duckduckgo.com/chat*",
+        "https://*.duckduckgo.com/chat*",
+        "https://duckduckgo.com/aichat*",
+        "https://*.duckduckgo.com/aichat*",
+        "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat*",
+        "https://chat.qwen.ai/*",
+        "https://*.qwen.ai/*",
+        "https://tongyi.aliyun.com/*",
+        "https://www.dola.com/*",
+        "https://dola.com/*",
+        "https://*.dola.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
