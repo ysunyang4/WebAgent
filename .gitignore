@@ -3,3 +3,25 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# Local configuration, credentials and temporary data
+.env
+.env.*
+!.env.example
+*.local
+*.key
+*.pem
+*.p12
+*.pfx
+*.token
+*.secret
+*.db
+*.sqlite
+*.jsonl
+*.bak
+node_modules/
+dist/
+build/
+coverage/
+__pycache__/
+*.py[cod]
